@@ -2,28 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (!localStorage.getItem('shifts')) window.location.href = 'index.html';
 
 	const loaded = localStorage.getItem('shifts');
-	const { date, shifts } = JSON.parse(loaded);
+	const { date, message, shifts } = JSON.parse(loaded);
+	console.log(message);
 
 	document.querySelector('#date').innerHTML = formatDate(new Date(date));
 	new SuperMarquee(document.querySelector('.marquee'), {
-		content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, aperiam.',
+		content: message,
 	});
 
 	const [first, ...rest] = shifts;
-	let foodInterval = renderFoods(first);
-	let shiftInterval = renderShift(rest);
-
-	setInterval(() => {
-		clearInterval(foodInterval);
-		clearInterval(shiftInterval);
-
-		const temp = shifts.shift();
-		shifts.push(temp);
-
-		const [first, ...rest] = shifts;
-		foodInterval = renderFoods(first);
-		shiftInterval = renderShift(rest);
-	}, 15000);
+	renderFoods(first);
+	renderShift(rest);
 });
 
 const html = String.raw;
@@ -53,23 +42,21 @@ const renderFoods = (shift) => {
 
 	const current = document.getElementById('current');
 	current.classList.add('fade-up');
-	current.innerHTML = time;
+	current.innerHTML = `Jam ${time}`;
 
 	const foods = document.querySelectorAll('.food');
 	if (foods.length === 0) return;
 
 	const change = () => {
 		foods.forEach((food, index) => {
-			const { image, name } = menus.at(index);
+			const { image, name, description } = menus.at(index);
 
 			setTimeout(() => {
 				food.innerHTML = html`
 					<img src="${image}" alt="food" class="w-full rounded-xl aspect-square object-cover" />
 					<div class="space-y-2">
 						<h2 class="text-2xl heading">${name}</h2>
-						<p class="text-zinc-500 line-clamp-2">
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, cumque?
-						</p>
+						<p class="text-zinc-500 line-clamp-2">${description}</p>
 					</div>
 				`;
 
@@ -107,7 +94,7 @@ const renderShift = (shifts) => {
 		});
 
 		schedule.innerHTML = html`
-			<span class="text-2xl font-bold heading">${time}</span>
+			<span class="text-2xl font-bold heading">Jam ${time}</span>
 			<ul class="space-y-4 overflow-hidden">
 				${lists.join('')}
 			</ul>

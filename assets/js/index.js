@@ -25,57 +25,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		const formData = new FormData(form);
 
-		if (
-			[
-				'date',
-				...Array(3)
-					.fill(null)
-					.map((_, i) => 'shift-' + Number(i + 1)),
-			].some((key) => !formData.get(key) || formData.get(key) === '')
-		) {
-			alert('Semua field harus diisi');
-			return;
-		}
-
 		const data = {
-			date: formData.get('date') || 'Kosong',
-			shifts: Array(3)
-				.fill(null)
-				.map((_, i) => {
-					const time = formData.get('shift-' + Number(i + 1));
-
-					return {
-						time: time || 'Kosong',
-						menus: Array(3)
-							.fill(null)
-							.map((_, j) => {
-								const index = i * 3 + j + 1;
-								const name = formData.get('menu-' + index);
-								const image = formData.get('image-' + index);
-
-								if (image.size === 0) {
-									return {
-										name: name || 'Kosong',
-										image: 'https://placehold.co/600x400?text=Tidak+Ada+Gambar',
-									};
-								}
-
-								return {
-									name: name || 'Kosong',
-									image: fileToBase64(image),
-								};
-							}),
-					};
-				}),
+			date: formData.get('date'),
+			message: formData.get('message'),
+			shifts: [
+				{
+					time: formData.get('shift-1'),
+					menus: [
+						{
+							name: formData.get('menu-1'),
+							image: fileToBase64(formData.get('image-1')),
+							description: formData.get('description-1'),
+						},
+						{
+							name: formData.get('menu-2'),
+							image: fileToBase64(formData.get('image-2')),
+							description: formData.get('description-2'),
+						},
+						{
+							name: formData.get('menu-3'),
+							image: fileToBase64(formData.get('image-3')),
+							description: formData.get('description-3'),
+						},
+					],
+				},
+				{
+					time: formData.get('shift-2'),
+					menus: [
+						{ name: formData.get('menu-4') },
+						{ name: formData.get('menu-5') },
+						{ name: formData.get('menu-6') },
+					],
+				},
+				{
+					time: formData.get('shift-3'),
+					menus: [
+						{ name: formData.get('menu-7') },
+						{ name: formData.get('menu-8') },
+						{ name: formData.get('menu-9') },
+					],
+				},
+			],
 		};
 
-		const promises = data.shifts.flatMap((shift) => shift.menus.map((menu) => menu.image));
+		const promises = data.shifts.at(0).menus.map((menu) => menu.image);
 
 		await Promise.all(promises).then((images) => {
-			data.shifts.forEach((shift, i) => {
-				shift.menus.forEach((menu, j) => {
-					menu.image = images[i * 3 + j];
-				});
+			data.shifts.at(0).menus.forEach((menu, i) => {
+				menu.image = images[i];
 			});
 		});
 

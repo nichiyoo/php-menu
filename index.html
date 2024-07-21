@@ -26,14 +26,11 @@
 		</nav>
 
 		<main class="w-full px-8 py-20 mx-auto max-w-7xl">
-			<form action="#" enctype="multipart/form-data" class="space-y-8">
-				<div class="space-y-6 card">
+			<form action="#" enctype="multipart/form-data" class="grid gap-8 lg:grid-cols-2">
+				<div class="space-y-6 card col-span-full">
 					<div class="mb-8">
-						<h2 class="text-2xl font-bold text-primary">Detail Hari</h2>
-						<p class="text-zinc-500">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi modi itaque provident
-							reprehenderit expedita odit.
-						</p>
+						<h2 class="text-2xl font-bold text-primary">Detail Hari dan Pesan</h2>
+						<p class="text-zinc-500">Masukkan detail hari dan informasi pesan yang akan ditampilkan.</p>
 					</div>
 
 					<div class="space-y-2">
@@ -41,181 +38,133 @@
 						<input type="date" name="date" id="date" class="control" />
 					</div>
 
-					<div class="grid gap-8 lg:grid-cols-3">
-						<div class="space-y-2">
-							<label for="shift-1">Jadwal Shift 1</label>
-							<input type="text" name="shift-1" id="shift-1" class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="shift-2">Jadwal Shift 2</label>
-							<input type="text" name="shift-2" id="shift-2" class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="shift-3">Jadwal Shift 3</label>
-							<input type="text" name="shift-3" id="shift-3" class="control" />
-						</div>
+					<div class="space-y-2">
+						<label for="message">Pesan</label>
+						<textarea name="message" id="message" class="control" rows="2"></textarea>
 					</div>
 				</div>
 
-				<div class="space-y-6 card">
+				<div class="space-y-6 card col-span-full">
 					<div class="mb-8">
-						<h2 class="text-2xl font-bold text-primary">Menu Shift Pertama</h2>
-						<p class="text-zinc-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+						<h2 class="text-2xl font-bold text-primary">Menu Shift Utama</h2>
+						<p class="text-zinc-500">
+							Masukkan nama menu dan foto menu utama, foto dan nama menu akan ditampilkan.
+						</p>
+					</div>
+
+					<div class="space-y-2">
+						<label for="shift-1">Jadwal Shift</label>
+						<input
+							type="text"
+							name="shift-1"
+							id="shift-1"
+							class="control"
+							placeholder="Masukkan jadwal jam shift" />
 					</div>
 
 					<div class="grid gap-8 lg:grid-cols-3">
-						<div class="space-y-2">
-							<label for="menu-1">Nama Menu 1</label>
-							<input
-								type="text"
-								name="menu-1"
-								id="menu-1"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="menu-2">Nama Menu 2</label>
-							<input
-								type="text"
-								name="menu-2"
-								id="menu-2"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="menu-3">Nama Menu 3</label>
-							<input
-								type="text"
-								name="menu-3"
-								id="menu-3"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="image-1">Foto Menu 1</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+						<div class="space-y-8">
+							<div class="space-y-2">
+								<label for="menu-1">Nama Menu</label>
 								<input
-									type="file"
-									name="image-1"
-									id="image-1"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
+									type="text"
+									name="menu-1"
+									id="menu-1"
+									placeholder="Masukkan nama menu"
+									class="control" />
+							</div>
+
+							<div class="space-y-2">
+								<label for="image-1">Foto Menu</label>
+								<div
+									class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
+									<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+									<input
+										type="file"
+										name="image-1"
+										id="image-1"
+										placeholder="Masukkan foto menu"
+										class="hidden" />
+								</div>
+							</div>
+
+							<div class="space-y-2">
+								<label for="description-1">Deskripsi Menu</label>
+								<textarea
+									name="description-1"
+									id="description-1"
+									placeholder="Masukkan deskripsi menu"
+									class="control"></textarea>
 							</div>
 						</div>
 
-						<div class="space-y-2">
-							<label for="image-2">Foto Menu 2</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+						<div class="space-y-8">
+							<div class="space-y-2">
+								<label for="menu-2">Nama Menu</label>
 								<input
-									type="file"
-									name="image-2"
-									id="image-2"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
+									type="text"
+									name="menu-2"
+									id="menu-2"
+									placeholder="Masukkan nama menu"
+									class="control" />
+							</div>
+
+							<div class="space-y-2">
+								<label for="image-2">Foto Menu</label>
+								<div
+									class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
+									<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+									<input
+										type="file"
+										name="image-2"
+										id="image-2"
+										placeholder="Masukkan foto menu"
+										class="hidden" />
+								</div>
+							</div>
+
+							<div class="space-y-2">
+								<label for="description-2">Deskripsi Menu</label>
+								<textarea
+									name="description-2"
+									id="description-2"
+									placeholder="Masukkan deskripsi menu"
+									class="control"></textarea>
 							</div>
 						</div>
 
-						<div class="space-y-2">
-							<label for="image-3">Foto Menu 3</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+						<div class="space-y-8">
+							<div class="space-y-2">
+								<label for="menu-3">Nama Menu</label>
 								<input
-									type="file"
-									name="image-3"
-									id="image-3"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
+									type="text"
+									name="menu-3"
+									id="menu-3"
+									placeholder="Masukkan nama menu"
+									class="control" />
 							</div>
-						</div>
-					</div>
-				</div>
 
-				<div class="space-y-6 card">
-					<div class="mb-8">
-						<h2 class="text-2xl font-bold text-primary">Menu Shift Kedua</h2>
-						<p class="text-zinc-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-					</div>
-
-					<div class="grid gap-8 lg:grid-cols-3">
-						<div class="space-y-2">
-							<label for="menu-4">Nama Menu 4</label>
-							<input
-								type="text"
-								name="menu-4"
-								id="menu-4"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="menu-5">Nama Menu 5</label>
-							<input
-								type="text"
-								name="menu-5"
-								id="menu-5"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="menu-6">Nama Menu 6</label>
-							<input
-								type="text"
-								name="menu-6"
-								id="menu-6"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
-
-						<div class="space-y-2">
-							<label for="image-4">Foto Menu 4</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-4"
-									id="image-4"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
+							<div class="space-y-2">
+								<label for="image-3">Foto Menu</label>
+								<div
+									class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
+									<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
+									<input
+										type="file"
+										name="image-3"
+										id="image-3"
+										placeholder="Masukkan foto menu"
+										class="hidden" />
+								</div>
 							</div>
-						</div>
 
-						<div class="space-y-2">
-							<label for="image-5">Foto Menu 5</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-5"
-									id="image-5"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
-							</div>
-						</div>
-
-						<div class="space-y-2">
-							<label for="image-6">Foto Menu 6</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-6"
-									id="image-6"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
+							<div class="space-y-2">
+								<label for="description-3">Deskripsi Menu</label>
+								<textarea
+									name="description-3"
+									id="description-3"
+									placeholder="Masukkan deskripsi menu"
+									class="control"></textarea>
 							</div>
 						</div>
 					</div>
@@ -223,86 +172,69 @@
 
 				<div class="space-y-6 card">
 					<div class="mb-8">
-						<h2 class="text-2xl font-bold text-primary">Menu Shift Ketiga</h2>
-						<p class="text-zinc-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+						<h2 class="text-2xl font-bold text-primary">Menu Shift</h2>
+						<p class="text-zinc-500">Masukkan detail nama menu pada shift selanjutnya.</p>
 					</div>
 
-					<div class="grid gap-8 lg:grid-cols-3">
-						<div class="space-y-2">
-							<label for="menu-7">Nama Menu 7</label>
-							<input
-								type="text"
-								name="menu-7"
-								id="menu-7"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
+					<div class="space-y-2">
+						<label for="shift-2">Jadwal Shift</label>
+						<input
+							type="text"
+							name="shift-2"
+							id="shift-2"
+							class="control"
+							placeholder="Masukkan jadwal jam shift" />
+					</div>
 
-						<div class="space-y-2">
-							<label for="menu-8">Nama Menu 8</label>
-							<input
-								type="text"
-								name="menu-8"
-								id="menu-8"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
+					<div class="space-y-2">
+						<label for="menu-4">Nama Menu</label>
+						<input type="text" name="menu-4" id="menu-4" placeholder="Masukkan nama menu" class="control" />
+					</div>
 
-						<div class="space-y-2">
-							<label for="menu-9">Nama Menu 9</label>
-							<input
-								type="text"
-								name="menu-9"
-								id="menu-9"
-								placeholder="Masukkan nama menu"
-								class="control" />
-						</div>
+					<div class="space-y-2">
+						<label for="menu-5">Nama Menu</label>
+						<input type="text" name="menu-5" id="menu-5" placeholder="Masukkan nama menu" class="control" />
+					</div>
 
-						<div class="space-y-2">
-							<label for="image-7">Foto Menu 7</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-7"
-									id="image-7"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
-							</div>
-						</div>
-
-						<div class="space-y-2">
-							<label for="image-8">Foto Menu 8</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-8"
-									id="image-8"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
-							</div>
-						</div>
-
-						<div class="space-y-2">
-							<label for="image-9">Foto Menu 9</label>
-							<div
-								class="w-full overflow-hidden rounded-lg cursor-pointer aspect-thumbnail bg-zinc-200 mask">
-								<img alt="menu image" class="hidden object-cover w-full aspect-thumbnail preview" />
-								<input
-									type="file"
-									name="image-9"
-									id="image-9"
-									placeholder="Masukkan foto menu"
-									class="hidden" />
-							</div>
-						</div>
+					<div class="space-y-2">
+						<label for="menu-6">Nama Menu</label>
+						<input type="text" name="menu-6" id="menu-6" placeholder="Masukkan nama menu" class="control" />
 					</div>
 				</div>
 
-				<div class="flex items-center justify-end space-x-4">
+				<div class="space-y-6 card">
+					<div class="mb-8">
+						<h2 class="text-2xl font-bold text-primary">Menu Shift</h2>
+						<p class="text-zinc-500">Masukkan detail nama menu pada shift selanjutnya.</p>
+					</div>
+
+					<div class="space-y-2">
+						<label for="shift-3">Jadwal Shift</label>
+						<input
+							type="text"
+							name="shift-3"
+							id="shift-3"
+							class="control"
+							placeholder="Masukkan jadwal jam shift" />
+					</div>
+
+					<div class="space-y-2">
+						<label for="menu-7">Nama Menu</label>
+						<input type="text" name="menu-7" id="menu-7" placeholder="Masukkan nama menu" class="control" />
+					</div>
+
+					<div class="space-y-2">
+						<label for="menu-8">Nama Menu</label>
+						<input type="text" name="menu-8" id="menu-8" placeholder="Masukkan nama menu" class="control" />
+					</div>
+
+					<div class="space-y-2">
+						<label for="menu-9">Nama Menu</label>
+						<input type="text" name="menu-9" id="menu-9" placeholder="Masukkan nama menu" class="control" />
+					</div>
+				</div>
+
+				<div class="flex items-center justify-end space-x-4 col-span-full">
 					<button
 						type="reset"
 						class="px-4 py-2 font-medium rounded-lg text-zinc-700 bg-zinc-200 hover:bg-primary-600">
