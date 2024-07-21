@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--font-display: 'Inter', cursive;
+		--font-body: 'Inter', sans-serif;
+	}
+
+	html,
+	body {
+		@apply font-body bg-zinc-100;
+	}
+
+	label {
+		@apply font-body font-medium text-zinc-700;
+	}
+}
+
+@layer components {
+	.card {
+		@apply bg-white border border-zinc-200 rounded-3xl p-8;
+	}
+
+	.heading {
+		@apply font-bold text-primary font-display;
+	}
+
+	.control {
+		@apply w-full px-4 py-2 border rounded-lg border-zinc-200 focus:border-primary file:hidden;
+	}
+
+	@keyframes fade-up {
+		0% {
+			opacity: 0;
+			transform: translateY(2rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-up {
+		animation: fade-up 0.5s ease-in-out;
+	}
+
+	@keyframes fade-left {
+		0% {
+			opacity: 0;
+			transform: translateX(-100%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	.fade-left {
+		animation: fade-left 0.5s ease-in-out;
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.fade-in {
+		animation: fade-in 0.5s ease-in-out;
+	}
+}
