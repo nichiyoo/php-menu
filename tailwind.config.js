@@ -10,7 +10,8 @@ module.exports = {
 				body: ['var(--font-body)', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
-				primary: '#00529a',
+				primary: 'rgb(var(--color-primary) / <alpha-value>)',
+				secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
 			},
 			aspectRatio: {
 				thumbnail: '4 / 3',

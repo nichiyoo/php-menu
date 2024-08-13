@@ -4,31 +4,40 @@
 
 @layer base {
 	:root {
-		--font-display: 'Inter', cursive;
+		--font-display: 'Orbitron', cursive;
 		--font-body: 'Inter', sans-serif;
+
+		--color-primary: 0 82 155;
+		--color-secondary: 108 182 248;
+		--color-tertiary: 228 237 255;
 	}
 
 	html,
 	body {
-		@apply font-body bg-zinc-100;
+		@apply font-body bg-secondary;
 	}
 
 	label {
-		@apply font-body font-medium text-zinc-700;
+		@apply font-medium font-body text-zinc-700;
 	}
 }
 
 @layer components {
+	.logo {
+		@apply relative flex items-center justify-center h-12 bg-white w-64;
+		box-shadow: rgb(var(--color-primary)) 8px -8px 0px;
+	}
+
 	.card {
-		@apply bg-white border border-zinc-200 rounded-3xl p-8;
+		@apply p-8 bg-white border border-zinc-500 rounded-3xl;
 	}
 
 	.heading {
-		@apply font-bold text-primary font-display;
+		@apply font-bold text-primary;
 	}
 
 	.control {
-		@apply w-full px-4 py-2 border rounded-lg border-zinc-200 focus:border-primary file:hidden;
+		@apply w-full px-4 py-2 border rounded-lg border-zinc-500 focus:border-primary file:hidden;
 	}
 
 	@keyframes fade-up {

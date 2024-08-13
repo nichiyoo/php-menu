@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const formData = new FormData(form);
 
 		const data = {
+			title: formData.get('title'),
 			date: formData.get('date'),
 			message: formData.get('message'),
 			shifts: [
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					],
 				},
 				{
+					order: formData.get('order-2'),
 					time: formData.get('shift-2'),
 					menus: [
 						{ name: formData.get('menu-4') },
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					],
 				},
 				{
+					order: formData.get('order-3'),
 					time: formData.get('shift-3'),
 					menus: [
 						{ name: formData.get('menu-7') },

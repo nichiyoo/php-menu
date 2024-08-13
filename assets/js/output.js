@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (!localStorage.getItem('shifts')) window.location.href = 'index.html';
 
 	const loaded = localStorage.getItem('shifts');
-	const { date, message, shifts } = JSON.parse(loaded);
+	const { date, title, message, shifts } = JSON.parse(loaded);
 	console.log(message);
 
+	document.querySelector('#title').innerHTML = title;
 	document.querySelector('#date').innerHTML = formatDate(new Date(date));
 	new SuperMarquee(document.querySelector('.marquee'), {
 		content: message,
@@ -81,18 +82,21 @@ const renderFoods = (shift) => {
  * @returns
  */
 const renderShift = (shifts) => {
-	const schedule = document.querySelector('.shift');
-	if (!schedule) return;
+	const shift = document.querySelector('.shift');
+	if (!shift) return;
 
 	let index = 0;
+	const shiftOrder = shift.querySelector('.order');
+	const schedule = shift.querySelector('.schedule');
 
 	const change = () => {
-		const { time, menus } = shifts.at(index);
+		const { order, time, menus } = shifts.at(index);
 
 		const lists = menus.map((menu) => {
 			return html` <li class="px-4 py-2 bg-zinc-100 rounded-xl">${menu.name}</li>`;
 		});
 
+		shiftOrder.innerHTML = order;
 		schedule.innerHTML = html`
 			<span class="text-2xl font-bold heading">Jam ${time}</span>
 			<ul class="space-y-4 overflow-hidden">
